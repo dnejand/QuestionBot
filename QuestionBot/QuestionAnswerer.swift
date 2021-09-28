@@ -1,6 +1,22 @@
 struct MyQuestionAnswerer {
     func responseTo(question: String) -> String {
-        // TODO: Write a response
-        return "I’m sorry, I don’t understand the question"
+        let lowercasedQuestion = question.lowercased()
+        if lowercasedQuestion == "hello there" {
+            return "Why, hello there!"
+        } else if lowercasedQuestion == "where are the cookies?" {
+            return "In the cookie jar!"
+        } else if lowercasedQuestion.hasPrefix("where") {
+            return "To the North!"
+        } else {
+            let defaultNumber = question.count % 3
+            
+            if defaultNumber == 0 {
+                return "That really depends"
+            } else if defaultNumber == 1 {
+                return "Ask me again tomorrow"
+            } else { 
+                return "Don't ask"
+            }
+        }
     }
 }
